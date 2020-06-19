@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var obj = [{ age: 18, name: 'json' }, '1111', '2222'];
+    var obj1 = { age: 18, name: 'json' }
+    var obj2 = ['aa', 'bb', 'cc', undefined, null]
+
+    // 对象里面有数组  数组里面有对象
+    var obj3 = {
+      age: 18,
+      name: 'Amy',
+      aa: [
+        { ageAA: 38, nameAA: 'lili' },
+        'val',
+        '63',
+        undefined,
+        null
+      ],
+      bb: {
+        ageBB: 96,
+        nameBB: 'angel'
+      }
+    }
+
+    var obj4 = undefined
+
+    // 深度拷贝
+    function deepClone(data) {
+
+      if (!data || typeof data !== 'object') {
+        return data
+      }
+
+      let newData = Array.isArray(data) ? [] : {}
+
+      for (let i in data) {
+        if (data[i] && typeof(data[i]) === 'object') newData[i] = deepClone(data[i])
+
+        else if(data[i]) newData[i] = data[i]
+
+        else {
+          console.log('===', data[i])
+        }
+      }
+
+      return newData
+    }
+
+    console.log(deepClone(obj3))
+
+
+
+      // 深度拷贝
+      // 三种情况 --> ① 数组  ② 对象  ③ 普通值 
+  </script>
+</body>
+
+</html>

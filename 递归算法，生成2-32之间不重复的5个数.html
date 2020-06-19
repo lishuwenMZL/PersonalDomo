@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>递归算法，生成2-32之间不重复的5个数</title>
+</head>
+<body>
+  <script>
+    var arr = new Array(5);
+    console.log('arr',arr.length)
+    // 生成随机数
+    var num = parseInt(Math.random()*30 + 2);
+    // 记录递归次数
+    var i = 0;
+    // 调用递归函数
+    randomArr(arr,num);
+
+    // 递归方法
+    function randomArr(arr,num) {
+        if (arr.indexOf(num)< 0){
+            arr[i] = num;
+            i++;
+        } else {
+            num = parseInt(Math.random()*30 + 2);
+        }
+        if (i>=arr.length){
+            console.log(arr);
+            return;
+        }else{
+            randomArr(arr,num)
+        }
+    }
+    // 数组中遍历 有没有当前生成的随机数  
+    // 没有：添加到数组中
+    // 有：继续生成一个新的随机数
+
+    // 终止条件：当递归的次数大于等于数组的长度的时候 停止
+    // 否则继续执行递归方法生成随机数
+   </script>
+</body>
+</html>

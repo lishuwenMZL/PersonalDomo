@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>俄罗斯套娃信封问题</title>
+</head>
+<body>
+  <script>
+    // 输入: envelopes = [[5,4],[6,4],[6,7],[2,3]]
+    // 输出: 3 
+    // 解释: 最多信封的个数为 3, 组合为: [2,3] => [5,4] => [6,7]
+    
+    function maxEnvelopes(envelopes){
+      // 先从小到大排序数组
+      envelopes = envelopes.sort();
+      // 把最小的最为参考值
+      let first = envelopes[0];
+      // 最多信封的组合数组 最小的在数组里作为一个默认值
+      let groupList = [envelopes[0]];
+      
+      // 遍历数组的值跟参考值的大小 比参考值两个都大的 放进到信封数组中 更新参考值 
+      for(let i =1;i<envelopes.length;i++){
+        if((first[0]<envelopes[i][0]) && (first[1]< envelopes[i][1])){
+          groupList.push(envelopes[i])
+          first = envelopes[i]
+        }
+      }
+      return groupList
+    }
+
+    let envelopes = [[5,4],[6,4],[6,7],[2,3]];
+    const list = maxEnvelopes(envelopes)
+    console.log('信封的长度是：',list.length,',信封的组合分别是',list)
+
+
+  </script>
+</body>
+</html>

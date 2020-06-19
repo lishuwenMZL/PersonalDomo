@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>打字效果</title>
+  <style>
+  
+  </style>
+</head>
+<body>
+  <div class="content">
+    
+  </div>
+  <script>
+    const dom = document.querySelector('.content')
+    const data = '趁阳光正好。趁微风不噪。趁繁花还未开至荼蘼。趁现在还年轻，还可以走很长很长的路，还能诉说很深很深的思念!陪伴是最长情的告白，等待是最温暖的港湾，不求与你共相伴到老，只愿能陪你待你可好'.split('')
+    let index = 0
+    function writing(index) {
+      if (index < data.length) {
+          dom.innerHTML += data[index]
+          setTimeout(writing.bind(this), 200, ++index)
+      }
+    }
+    writing(index)
+   
+  </script>
+</body>
+</html>

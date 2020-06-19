@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>字符串去重输出长度</title>
+</head>
+<body>
+  <script>
+    function lengthOfLongestSubstring(string){
+      const newString = [];
+      for(let item of string){
+        if(newString.indexOf(item)<0) newString.push(item)
+      }
+      return newString.length
+    }
+    let string = 'abcabcd';
+    console.log('length',lengthOfLongestSubstring(string))
+  </script>
+</body>
+</html>
