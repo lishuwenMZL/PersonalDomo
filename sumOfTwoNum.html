@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>  
+    // 给定一个整数数组和一个目标值，找出数组中和为目标值的两个数。
+    // 你可以假设每个输入只对应一种答案，且同样的元素不能被重复利用。
+
+    function sumOfTwoNum(arr,target){
+      for(let i=0;i<arr.length;i++){
+        let num = arr[i]
+        for(let k = i+1;k<arr.length;k++){
+          if(num + arr[k] === target){
+            return [num,arr[k]]
+          }
+        }
+      }
+    }
+
+    var arr = [1, 2, 11, 15,9,7],target = 9
+    console.log('sumOfTwoNum',sumOfTwoNum(arr,target))
+  </script>
+</body>
+</html>
