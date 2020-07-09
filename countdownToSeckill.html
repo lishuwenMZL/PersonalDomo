@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 
+    秒杀倒计时：hh：mm：ss
+  -->
+  <div id='_h'></div>
+  <div id='_m'></div>
+  <div id='_s'></div>
+
+  <script>
+    function time() {
+      let startTime = new Date().getTime()
+      let endTime = new Date('2020-07-25 00:00:00').getTime()
+      let timeDiff = endTime - startTime
+
+      let hours, minute, second;
+      if (timeDiff >= 0) {
+        // 分别算出  时、分、秒
+        hours = Math.floor(timeDiff / 1000 / 60 / 60)
+        // 秒数取佘，得到整数秒数
+        minute = Math.floor(timeDiff / 1000 / 60 % 60)
+        second = Math.floor(timeDiff / 1000 % 60)
+
+        hours < 10 ? `00${hours}` : hours
+        minute < 10 ? `00${minute}` : minute
+        second < 10 ? `00${second}` : second
+
+        document.getElementById('_h').innerHTML = hours + "时";
+        document.getElementById('_m').innerHTML = minute + "分";
+        document.getElementById('_s').innerHTML = second + "秒";
+        setTimeout(time, 1000)
+      }
+      else {
+        document.getElementById("_h").innerHTML = "00时";
+        document.getElementById("_m").innerHTML = "00分";
+        document.getElementById("_s").innerHTML = "00秒";
+      }
+    }
+
+    time()
+
+  </script>
+</body>
+
+</html>
