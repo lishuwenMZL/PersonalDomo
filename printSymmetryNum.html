@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 打印出 1 - 10000 之间的所有对称数
+    // 例如：121、1221、1331 等
+
+
+
+    // 遍历10000次的方法，性能差点
+    function printSymmetryNum() {
+      return [...Array(10000).keys()].filter((x) => {
+        return x.toString().length > 1 && x === Number(x.toString().split('').reverse().join(''))
+      })
+    }
+
+    console.log('printSymmetryNum', printSymmetryNum())
+
+
+    // 利用对称数
+    // 两位：11,22,33,44,55,66,77,88,99,
+    // 三位：1*1，2*2，3*3，.....
+    // 四位：1**1，2**2，.....
+
+    var result = [];
+    for (let i = 1; i < 10; i++) {
+      // debugger
+      result.push(i * 11); // 两位数的对称数
+      for (let j = 0; j < 10; j++) {
+        // debugger
+        result.push(i * 101 + j * 10) //  三位数的对称数
+        result.push(i * 1001 + j * 110) // 四位数的对称数，当i和j均为9是值为9999
+      }
+    }
+    console.log(result);
+
+  </script>
+</body>
+
+</html>
