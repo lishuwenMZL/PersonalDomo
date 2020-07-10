@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /*
+    * 睡眠的定时器，传入一个需要睡眠的时间
+    */ 
+
+    function sleep(time){
+      return new Promise((res,rej)=>{
+        setTimeout(()=>{
+          res()
+        },time)
+      })
+    }
+
+    sleep(3000).then(()=>{
+      alert('睡醒了')
+    })
+  </script>
+</body>
+</html>
